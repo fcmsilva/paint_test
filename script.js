@@ -101,7 +101,7 @@ var globalHistory = {
 
     (list || this.undo_list).push([canvas,canvas.toDataURL()]);
     let l = (list || this.undo_list)
-    if(l.length>10){
+    if(l.length>40){
       l.shift();
     }   
   },
