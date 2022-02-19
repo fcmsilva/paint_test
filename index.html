@@ -1,0 +1,96 @@
+<html>
+<head>
+  
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body><div id="cursor"></div>
+<main>
+  <canvas id="paint-global-canvas" width="" height=""></canvas>
+  <div class="brushes">
+    <button type="button" value="1" onclick="$('main').removeClass('paintcastle')"><i class="fa-solid fa-pen-nib"></i></button>
+    <button type="button" class="active" value="6" onclick="$('main').removeClass('paintcastle')"><i class="fa-solid fa-paintbrush"></i></button>
+    <button type="button" value="50" onclick="$('main').removeClass('paintcastle')"><i class="fa-solid fa-brush"></i></button>
+    <button type="button" value="51" onclick="$('main').addClass('paintcastle')" class="castle-selector"><i class="fa-brands fa-fort-awesome"></i><span style="margin:0 2px;"></span><i class="fa-solid fa-brush"></i></button>
+
+    <button type="button" value="-1" class="dino-selector img-brush" onclick="$('main').removeClass('paintcastle')"><i class="fa-solid fa-hippo"></i></button>
+
+  </div>
+
+  <div class="img-list">
+       <div class="img-wrapper">
+      <div class='bg-img active' id="portas-img" name='portas'></div>
+    </div>
+      <div class="img-wrapper">
+        <div class='bg-img' id="plaza-img" name='plaza'></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      
+function openFullscreen() {
+  let elem =document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+    </script>
+    <div class="left-block">
+      <div class="top-controls">
+        <button id="undobtn" onclick="undo()" type="button"><i class="fa-solid fa-rotate-left"></i></button>
+        <button id="redobtn" onclick="redo()" type="button"><i class="fa-solid fa-rotate-right"></i></button>
+        <button id="clear" type="button"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" onclick="openFullscreen()">FS</button>
+      </div>
+      <div class="colors">
+        <!--
+          <button type="button" value="#0000ff" style="background-color:#0000ff;"></button>
+          <button type="button" value="#bfffff" style="background-color:#bfffff;"></button>
+          <button type="button" value="#000000" style="background-color:#000000;"></button>
+          <button type="button" value="#999999" style="background-color:#999999;"></button>
+          <button type="button" value="#ffcc66" style="background-color:#ffcc66;"></button>
+          <button type="button" value="#ffcc00" style="background-color:#ffcc00;"></button>
+          <button type="button" value="#ff6600" style="background-color:#ff6600;"></button>
+          <button type="button" value="#ff9933" style="background-color:#ff9933;"></button>
+          <button type="button" value="#f5deb3" style="background-color:#f5deb3;"></button>
+          <button type="button" value="#cc66cc" style="background-color:#cc66cc;"></button>
+          <button type="button" value="#ff66ff" style="background-color:#ff66ff;"></button>
+          <button type="button" value="#ffffff" style="background-color:#ffffff;"></button>-->
+        <button type="button" value="#000000" style="background-color:#000000;"></button>
+        <button type="button" value="#808080" class="active" style="background-color:#808080;"></button>
+        <button type="button" value="#FFFFFF" style="background-color:#FFFFFF;"></button>
+        <button type="button" value="#800000" style="background-color:#800000;"></button>
+        <button type="button" value="#FF0000" style="background-color:#FF0000;"></button>
+        <button type="button" value="#ff8c00" style="background-color:#ff8c00;"></button>
+        <button type="button" value="#BB00BB" style="background-color:#BB00BB;"></button>
+        <button type="button" value="#008000" style="background-color:#008000;"></button>
+        <button type="button" value="#00FF00" style="background-color:#00FF00;"></button>
+        <button type="button" value="#FFFF00" style="background-color:#FFFF00;"></button>
+        <button type="button" value="#0000EE" style="background-color:#0000EE;"></button>
+        <!--<button type="button" value="#6495ed" style="background-color:#6495ed;"></button>-->
+        <button type="button" value="red" style="background:linear-gradient(to right, orange , yellow, green, cyan, blue, violet);" id="rainbow-brush"></button>
+      </div>
+
+      <!--<div class="buttons">
+
+          
+          <button id="save" type="button">Save</button>
+          <button id="castle-only" onclick="$('main').addClass('paintcastle')"type="button">Castle-only</button>
+          <button id="all" onclick="$('main').removeClass('paintcastle')"type="button">Geral</button>
+        </div>-->
+    </div>
+
+    <div id="img-mask"></div>
+    <div class="right-block">
+      <canvas id="paint-canvas" width="" height=""></canvas>
+      <div id="backdrop"></div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</main></body>
+</html>
